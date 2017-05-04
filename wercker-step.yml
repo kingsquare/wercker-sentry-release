@@ -1,0 +1,16 @@
+name: sentry-release
+version: 0.0.1
+description: Post your releases after wercker's builds to Sentry.io
+keywords:
+  - sentry
+  - release
+properties:
+  auth_token:
+    type: string
+    required: true
+  organization:
+    type: string
+    required: true
+  version:
+    type: string
+    required: false
