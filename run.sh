@@ -18,6 +18,11 @@ if [ ! -n "$WERCKER_SENTRY_RELEASE_VERSION" ]; then
   export WERCKER_SENTRY_RELEASE_VERSION=$WERCKER_GIT_COMMIT
 fi
 
+if [ ! -n "$WERCKER_SENTRY_RELEASE_PROJECTS" ]; then
+  export WERCKER_SENTRY_RELEASE_PROJECTS=$WERCKER_GIT_REPOSITORY
+fi
+WERCKER_SENTRY_RELEASE_PROJECTS="\"${WERCKER_SENTRY_RELEASE_PROJECTS/,/\",\"}\""
+
 SENTRY_ENTRYPOINT="https://sentry.io/api/0/organizations/$WERCKER_SENTRY_RELEASE_ORGANIZATION/releases/"
 
 curl -v $SENTRY_ENTRYPOINT \
@@ -30,6 +35,7 @@ curl -v $SENTRY_ENTRYPOINT \
     \"refs\": [{
         \"repository\":\"$WERCKER_GIT_REPOSITORY\",
         \"commit\":\"$WERCKER_GIT_COMMIT\",
-    }]
+    }],
+    \"version\": [$WERCKER_SENTRY_RELEASE_PROJECTS]
   }
 "

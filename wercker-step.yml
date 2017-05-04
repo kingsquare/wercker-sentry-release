@@ -1,5 +1,5 @@
 name: sentry-release
-version: 0.0.1
+version: 0.0.2
 description: Post your releases after wercker's builds to Sentry.io
 keywords:
   - sentry
@@ -11,6 +11,9 @@ properties:
   organization:
     type: string
     required: true
+  projects:
+    type: string
+    required: false
   version:
     type: string
     required: false
