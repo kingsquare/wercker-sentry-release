@@ -11,8 +11,8 @@ Add SENTRY_AUTH and SENTRY_ORG as deploy target or application environment varia
 
 ```
     - rafaelverger/sentry-release:
-        auth_token: $SENTRY_AUTH
-        organization: $SENTRY_ORG
-        projects: **OPTIONAL** // default: '$WERCKER_GIT_REPOSITORY'; format: "projectA,projectB"
         version: **OPTIONAL** // default: '$WERCKER_GIT_COMMIT'
+        projects: **OPTIONAL** // default: '$WERCKER_GIT_REPOSITORY'; format: "projectA,projectB"
+        organization: $SENTRY_ORG
+        auth_token: $SENTRY_AUTH
 ```

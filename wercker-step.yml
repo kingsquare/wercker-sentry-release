@@ -1,5 +1,5 @@
 name: sentry-release
-version: 1.0.0
+version: 1.0.1
 description: Post your releases to Sentry.io
 keywords:
   - sentry
@@ -14,6 +14,8 @@ properties:
   projects:
     type: string
     required: false
+    default: WERCKER_GIT_REPOSITORY
   version:
     type: string
     required: false
+    default: WERCKER_GIT_COMMIT
